@@ -74,6 +74,13 @@ p {
 code, pre {
     font-family: monospace;
 }
+.impress-enabled .step {
+    opacity: .1;
+}
+.impress-on-overview * {
+    opacity: 1!important;
+    text-shadow: 0 0 4px #000;
+}
 </style>
 
 <!--
@@ -189,10 +196,9 @@ YUI().use('dd-drop', function(Y) {
         </div>
 
 
-    <div class="step" data-x="-500" data-y="2000" data-rotate="28" data-scale="2">
-        <a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS</a> & nodejs
+    <div class="step" data-x="-250" data-y="2100" data-rotate="28" data-scale="2">
+        <a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS</a>
     </div>
-
 
     <div class="step" data-x="500" data-y="2700" data-rotate="32" data-scale="2.5">
         <p><code>require</code></p>
@@ -200,11 +206,9 @@ YUI().use('dd-drop', function(Y) {
         <p><code>module</code></p>
     </div>
 
-<!--
-
-    <div class="step">
+    <div class="step" data-x="250" data-y="2900" data-rotate="100">
 <pre>
-// alipay.js
+// nodejs
 require('./jquery.js');
 exports.add = function() {
     ...
@@ -212,36 +216,38 @@ exports.add = function() {
 </pre>
     </div>
 
-    <div class="step">
-        <p>浏览器端</p>
+    <div class="step present active" data-x="50" data-y="3200">
+        <h2>浏览器端</h2>
         <p>AMD 规范 & RequireJS</p>
     </div>
 
-    <div class="step">
-<pre>
-define(id?, dependencies?, factory);
-</pre>
+    <div class="step" data-x="-400" data-y="3150" data-scale="2">
+        <p>Wrapping</p>
     </div>
 
-    <div class="step">
-        <p>SeaJS</p>
-        <p>A Module Loader for the Web</p>
+    <div class="step" data-x="-1700" data-y="3750" data-z="-2000">
+        <p><code>define(id?, dependencies?, factory);</code></p>
     </div>
 
-    <div class="step">
-        <p>CMD 规范</p>
-        <p>尽量与 CommonJS Modules/1.1 以及 Node Modules 的规范保持一致</p>
-        <p>同时考虑 Web 特性</p>
+    <div id="ing" class="step" data-x="-1650" data-y="3200" data-scale="1.2" data-rotate="-90">
+        <h2><b class="rotating">SeaJS</b></h2>
+        <p>A Module <b class="positioning">Loader</b> for the Web</p>
+    </div> 
+
+    <div class="step"  data-x="-2000" data-y="2900" date-scale="1" data-rotate="-45">
+        <h2>CMD 规范</h2>
+        <p>- 尽量与 CommonJS Modules/1.1 以及 Node Modules 的规范保持一致</p>
+        <p>- 同时考虑 Web 特性</p>
     </div>
 
-    <div class="step">
+    <div class="step" data-x="-1500" data-y="2400" data-z="1000" data-rotate="-25">
 <pre>
 define(factory);
 </pre>
     </div>
 
-    <div class="step">
-<pre>
+    <div class="step" data-x="2000" data-y="600" data-z="0" data-scale="1" data-rotate="-12">
+<pre style="font-size:36px">
 define(function(require, exports, module) { 
     var $ = require(‘jquery’);
     var math = require(‘./math’);
@@ -249,43 +255,34 @@ define(function(require, exports, module) {
 });
 </pre>
     </div>
-
-    <div class="step">
+    
+    <div class="step" data-x="2900" data-y="560" data-rotate="12">
         <p>SeaJS 的实现原理</p>
     </div>
 
-    <div class="step">
+    <div class="step" data-x="2900" data-y="600" data-z="-2000" data-rotate="12">
         <p>SeaJS 使用了一些牛逼且龌蹉的手段实现了 CMD 规范。</p>
     </div>
 
-    <div class="step">
-        <p>SeaJS 的用法</p>
+    <div class="step" data-x="1500" data-y="900" data-rotate="-30">
+        <h2>SeaJS 的用法</h2>
         <p>define、require、exports、module、use、config...</p>
     </div>
 
-    <div class="step">
+    
+    <div class="step" data-x="1100" data-y="1200" data-rotate="-90">
         <p>define(factory)</p>
     </div>
 
-    <div class="step">
-<pre>
-define(function(require, exports, module) { 
-    var $ = require(‘jquery’);
-    var math = require(‘./math’);
-    exports.doSomething = function() {};
-});
-</pre>
-    </div>
-
-    <div class="step">
-        <p>require(id)</p>
+    <div class="step" data-x="1050" data-y="1520" data-rotate="-90">
+        <h2>require(id)</h2>
 <pre>
 var $ = require('jquery');
 </pre>
     </div>
 
-    <div class="step">
-        <p>exports</p>
+    <div class="step" data-x="1150" data-y="2160" data-rotate="-120">
+        <h2>exports</h2>
 <pre>
 exports.name = 'alipay';
 exports.add = function() {
@@ -294,93 +291,95 @@ exports.add = function() {
 </pre>
     </div>
 
-    <div class="step">
+    <div class="step" data-x="1950" data-y="2860" data-rotate="-145">
 <pre>
 define(function(require, exports, module) { 
-    var $ = require(‘jquery’);
     var math = require(‘./math’);
     exports.doSomething = function() {};
+    /*
+    module.exports = {
+        doSomething: ...
+    };
+    */
 });
 </pre>
-    </div>
+    </div> 
 
-    <div class="step">
+    <div class="step" data-x="2350" data-y="2920" data-rotate="-180">
         <p>使用模块 seajs.use</p>
     </div>
 
-    <div class="step">
-<pre>
+    <div class="step" data-x="2550" data-y="3100" data-rotate="-180">
+<pre style="font-size: 30px">
 seajs.use(['jquery', 'alipay'], function($, alipay) {
-    // use jquery and alipay
+    // you can use jquery and alipay here
     $('#test').hide();
 });
 </pre>
     </div>
 
-    <div class="step">
-        <p>seajs.config</p>
+    <div class="step" data-x="2000" data-y="1800">
+        <h2>seajs.config</h2>
     </div>
 
-    <div class="step">
+    <div class="step" data-x="2400" data-y="1800" data-scale=".5">
         <p>config.base - 配置基础路径</p>
         <p>config.alias - 配置模块别名</p>
         <p>config.map - 对文件请求路径进行匹配修改</p>
         <p>config.preload - 提前载入必要的插件和模块</p>
     </div>
 
-    <div class="step">
-<pre>
+    <div class="step" data-x="2800" data-y="1800" data-scale=".5">
+<pre style="font-size: 32px">
 seajs.config({
     base: '/sea-modules',
     alias: {
         'jquery': 'gallery/jquery/1.7.2/jquery'
     },
-    map:[ ['a.js', 'a-debug.js'], [/^(.*\.(?:css|js))(.*)$/i, '$1?455'] ],
+    map:[
+        ['a.js', 'a-debug.js'],
+        [/^(.*\.(?:css|js))(.*)$/i, '$1?455'] 
+    ],
     preload: ['plugin-json', 'plugin-combo']
 });
 </pre>
     </div>
 
-    <div class="step">
+    <div class="step" data-x="3500" data-y="1600" data-rotate="-20">
         <p>SeaJS 的ID规则</p>
     </div>
 
-    <div class="step">
+    <div class="step" data-x="3400" data-y="1300" data-rotate="-110" data-scale="0.5">
         <p>顶级标识 baseUrl + moduleId</p>
         <p>require('gallery/jquery/1.7.2/jquery')</p>
         <p>seajs.use('gallery/jquery/1.7.2/jquery')</p>
     </div>
 
-    <div class="step">
+    <div class="step" data-x="3300" data-y="1100" data-rotate="-130" data-scale="0.5">
         <p>普通标识</p>
-        <p>require('http://example.com/assets/seajs/1.0.0/sea.js')</p>
-        <p>seajs.use('/a.js');  //http://example.com/a.js</p>
+        <p>require('http://example.com/a.js')</p>
+        <p>seajs.use('/a.js');</p>
     </div>
 
-        <div class="step">
+    <div class="step" data-x="3100" data-y="900" data-rotate="-130" data-scale="0.5">
         <p>相对标识</p>
         <p>require('./a.js')</p>
         <p>require('../a.js')</p>
     </div>
 
-    <div class="step">
-        <p>seajs 的其他技巧</p>
+    <div class="step" data-x="5100" data-y="400">
+        <h2>seajs 的奇技淫巧</h2>
     </div>
 
-    <div class="step">
+    <div class="step" data-x="5100" data-y="400">
         <p>seajs.find('jquery');</p>
         <p>seajs.cache</p>
         <p>seajs.log('info');</p>
         <p>seajs.debug</p>
     </div>
 
-    <div class="step">
-        <p>SeaJS 插件</p>
-        <p>base + moduleId = uri</p>
-    </div>
-
-    <div class="step">
-        <p>SeaJS 插件</p>
+    <div class="step" data-x="5900" data-y="700" data-rotate="90">
+        <h2>SeaJS 插件</h2>
         <p>plugin.coffee</p>
         <p>plugin.combo</p>
         <p>plugin.debug</p>
@@ -389,61 +388,65 @@ seajs.config({
         <p>plugin.text</p>
     </div>
 
-    <div class="step">
-        <p>spm</p>
+    <div class="step" data-x="6300" data-y="800">
+        <h2>spm</h2>
         <p>简单放心的包管理工具</p>
     </div>
 
-    <div class="step">
+    <div class="step" data-rotate="90" data-x="6260" data-y="1800" data-scale="2">
         <p>一个使用 SeaJS 的简单范例</p>
     </div>
 
-    <div class="step">
-        <p>要不你们去官网看《五分钟上手seajs》？ #偷懒#</p>
+    <div class="step" data-rotate="90" data-x="6060" data-y="1900" data-scale="1.5">
+        <p>要不你们去官网看《五分钟上手seajs》？</p>
     </div>
 
-    <div class="step">
+    <div class="step" data-rotate="70" data-x="6280" data-y="2700" data-scale="1.5">
         <p>好吧，我们还是来看看这个演示是怎么写的吧</p>
     </div>
 
-    <div class="step">
+    <div class="step" data-x="5880" data-y="1500" data-scale=".5">
         <p>目录结构</p>
+        <img width="400" src="https://raw.github.com/slowhost/upload/1354875862883/1.png">
     </div>
     
-    <div class="step">
+    <div class="step" data-x="5550" data-y="1600" data-scale=".5">
         <p>impress 模块书写</p>
+        <img width="550" src="https://raw.github.com/slowhost/upload/1354876106327/2.png">        
     </div>
 
-    <div class="step">
-        <p>引入seajs</p>
+    <div class="step" data-x="5450" data-y="1700">
+        <p>引入seajs</p> 
     </div>
 
-    <div class="step">
-        <p>定义一些配置</p>
+    <div class="step" data-x="4900" data-y="1900" data-scale=".5">
+        <p>并定义一些配置</p>
+        <img width="550" src="https://raw.github.com/slowhost/upload/1354876372695/3.png">
     </div>
 
-    <div class="step">
+    <div class="step" data-x="4500" data-y="2600" data-scale="1.5" data-rotate="90">
         <p>在页面上使用 impress</p>
+        <img width="550" src="https://raw.github.com/slowhost/upload/1354876552074/4.png">
     </div>
 
-    <div class="step">
-        <p>社区</p>
-        <a href="http://github.com/seajs/seajs">
+    <div class="step" data-x="5000" data-y="3000" data-scale="1" data-rotate="20">
+        <h2>社区</h2>
+        <a href="http://seajs.org/">seajs.org</a>
+        <a href="https://github.com/seajs/seajs">github</a>
     </div>
 
-    <div class="step">
+    <div class="step" data-x="5300" data-y="3100" data-scale="1">
         <p>使用情况</p>
+        <img src="https://raw.github.com/slowhost/upload/1354876853322/5.png">        
     </div>
 
-    <div class="step">
-        <p>seajs 2.0 的规划</p>
-        <p>做减法：根据实际使用情况，将过度设计或不合理的功能去掉。</p>
-        <p>可扩展：插件机制的完善，以及插件的独立化。</p>
+    <div class="step" data-x="6100" data-y="3000" data-scale=".5" data-rotate="-20">
+        <h2>seajs 2.0 规划</h2>
+        <p>- 做减法：根据实际使用情况，将过度设计或不合理的功能去掉。</p>
+        <p>- 可扩展：插件机制的完善，以及插件的独立化。</p>
     </div>
 
-    -->
-
-    <div id="overview" class="step" data-x="2500" data-y="1500" data-scale="8"></div>
+    <div id="overview" class="step" data-x="2500" data-y="1500" data-scale="10"></div>
 
 </div>
 
@@ -473,7 +476,6 @@ if ("ontouchstart" in document.documentElement) {
 -->
 <script>
 seajs.use(['impress'], function(impress) {
-    console.log(impress);
     impress().init();
 });
 </script>
